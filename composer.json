@@ -1,24 +1,24 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "checkternary/checkternary",
+    "description": "This test algorithm aims to automate the verification of the conformity of the variables in the views of the application with respect to the ternary conditions which are applied to them, by ensuring that the conditions are correctly formulated and respect the appropriate syntax. This will quickly identify potential logic or syntax errors in views and improve the overall quality of the application.",
     "keywords": [
-        ":vendor_name",
+        "checkternary",
         "laravel",
-        ":package_slug"
+        "checkternary"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/checkternary/checkternary",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Kouakou Yao InnoCent",
+            "email": "innocentky2016@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.1",
-        "spatie/laravel-package-tools": "^1.14.0",
-        "illuminate/contracts": "^10.0"
+        "php": "^7.4|^8.0",
+        "spatie/laravel-package-tools": "^1.12.1",
+        "illuminate/contracts": "^7.0|^8.0|^9.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
@@ -30,24 +30,23 @@
         "pestphp/pest-plugin-laravel": "^2.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0",
-        "spatie/laravel-ray": "^1.26"
+        "phpstan/phpstan-phpunit": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Checkternary\\CheckTernary\\": "src/",
+            "Checkternary\\CheckTernary\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "Checkternary\\CheckTernary\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
     "scripts": {
         "post-autoload-dump": "@composer run prepare",
-        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "clear": "@php vendor/bin/testbench package:purge-checkternary --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "build": [
             "@composer run prepare",
@@ -72,10 +71,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Checkternary\\CheckTernary\\CheckTernaryServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "CheckTernary": "Checkternary\\CheckTernary\\Facades\\CheckTernary"
             }
         }
     },
