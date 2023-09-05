@@ -2,9 +2,9 @@
 
 namespace Checkternary\CheckTernary;
 
+use Checkternary\CheckTernary\Commands\CheckTernaryCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Checkternary\CheckTernary\Commands\CheckTernaryCommand;
 
 /**
  * Summary of CheckTernaryServiceProvider
@@ -13,8 +13,6 @@ class CheckTernaryServiceProvider extends PackageServiceProvider
 {
     /**
      * Summary of configurePackage
-     * @param \Spatie\LaravelPackageTools\Package $package
-     * @return void
      */
     public function configurePackage(Package $package): void
     {

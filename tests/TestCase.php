@@ -2,9 +2,9 @@
 
 namespace Checkternary\CheckTernary\Tests;
 
+use Checkternary\CheckTernary\CheckTernaryServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Checkternary\CheckTernary\CheckTernaryServiceProvider;
 
 class TestCase extends Orchestra
 {

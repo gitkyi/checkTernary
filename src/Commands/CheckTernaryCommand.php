@@ -2,8 +2,8 @@
 
 namespace Checkternary\CheckTernary\Commands;
 
-use Illuminate\Console\Command;
 use Checkternary\CheckTernary\CheckTernary;
+use Illuminate\Console\Command;
 
 /**
  * Summary of CheckTernaryCommand
@@ -11,6 +11,7 @@ use Checkternary\CheckTernary\CheckTernary;
 class CheckTernaryCommand extends Command
 {
     protected $signature = 'checkternary:analyse';
+
     protected $description = 'Check ternary analyse';
 
     public function handle()

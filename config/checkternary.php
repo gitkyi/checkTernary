@@ -7,5 +7,5 @@ return [
 
     'ignoredFolders' => [],
 
-    'ternary_formats' => '??'
+    'ternary_formats' => '??',
 ];

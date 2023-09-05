@@ -2,14 +2,10 @@
 
 namespace Checkternary\CheckTernary;
 
-use PSpell\Config;
-
 class CheckTernary
 {
-
     /**
      * Summary of ignoredFolders
-     * @var array
      */
     public array $ignoredFolders;
 
@@ -24,14 +20,12 @@ class CheckTernary
 
     }
 
-
     /**
      * Summary of checkTernaryConditionsInFiles
-     * @param array $folderPaths
-     * @param array $ignoredFolders
+     *
      * @return mixed
      */
-    static function checkTernaryConditionsInFiles(array $folderPaths, array $ignoredFolders)
+    public static function checkTernaryConditionsInFiles(array $folderPaths, array $ignoredFolders)
     {
 
         foreach ($folderPaths as $folderPath) {
@@ -43,7 +37,7 @@ class CheckTernary
                     continue;
                 }
 
-                $filePath = $folderPath . DIRECTORY_SEPARATOR . $file;
+                $filePath = $folderPath.DIRECTORY_SEPARATOR.$file;
                 if (is_dir($filePath)) {
                     if (in_array($file, $ignoredFolders)) {
                         continue;
@@ -52,18 +46,19 @@ class CheckTernary
                     self::checkTernaryConditionsInFiles([$filePath], $ignoredFolders);
                 } elseif (is_file($filePath)) {
                     $viewContent = file_get_contents($filePath);
+
                     return self::checkTernaryConditionsInView($filePath, $viewContent);
                 }
             }
         }
     }
 
-    static function checkTernaryConditionsInView($filePath, $viewContent)
+    public static function checkTernaryConditionsInView($filePath, $viewContent)
     {
         $configFormat = config('checkternary.ternary_formats');
         $lines = explode(PHP_EOL, $viewContent);
 
-        $output = "";
+        $output = '';
 
         foreach ($lines as $lineNumber => $lineContent) {
 
@@ -71,26 +66,26 @@ class CheckTernary
             preg_match_all('/\$\w+/', $lineContent, $variables);
 
             // Si des variables sont trouvées dans la ligne
-            if (!empty($variables[0])) {
+            if (! empty($variables[0])) {
 
                 $variableMatchCount = count($variables[0]);
 
                 // Vérifie si la variable a été utilisée dans une condition ternaire
-                preg_match_all('/' . preg_quote($configFormat, '/') . '/', $lineContent, $matches);
+                preg_match_all('/'.preg_quote($configFormat, '/').'/', $lineContent, $matches);
                 //dd($matches, $format, $lineContent);
 
                 if (empty($matches[0])) {
                     foreach ($variables[0] as $key => $variableName) {
-                        # code...
+                        // code...
                         $output .= "Line $lineNumber: $filePath";
-                        $output .= "  ==>  " . $lineContent . PHP_EOL;
+                        $output .= '  ==>  '.$lineContent.PHP_EOL;
                     }
                 } else {
                     $regexMatchCount = count($matches[0]);
                     if ($regexMatchCount != $variableMatchCount) {
                         foreach ($variables[0] as $key => $variableName) {
                             $output .= "x$regexMatchCount-$variableMatchCount Line $lineNumber: $filePath";
-                            $output .= "  ==>  " . $lineContent . PHP_EOL;
+                            $output .= '  ==>  '.$lineContent.PHP_EOL;
                         }
                     }
                 }
@@ -99,7 +94,4 @@ class CheckTernary
         }
         echo $output;
     }
-
-
-
 }
