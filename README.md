@@ -45,19 +45,8 @@ return [
 
     'ignoredFolders' => [],
 
-    'ternary_formats' => [
-        'format1' => '... ?? ...', // Format 1 de la condition ternaire
-        'format2' => '... ?: ...', // Format 2 de la condition ternaire
-        'format3' => '... ? ... : ...', // Format 2 de la condition ternaire
-        // Ajoutez plus de formats au besoin
-    ],
+    'ternary_formats' => '??'
 ];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="checkternary-views"
 ```
 
 ## Usage
@@ -87,8 +76,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Kouakou Yao InnoCent](https://github.com/gitkyi)
-- [All Contributors](../../contributors)
+-   [Kouakou Yao InnoCent](https://github.com/gitkyi)
+-   [All Contributors](../../contributors)
 
 ## License
 
